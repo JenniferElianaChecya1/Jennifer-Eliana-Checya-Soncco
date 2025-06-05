@@ -3,57 +3,752 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Nombre Completo</title>
+    <title>Jennifer Eliana - Portafolio Personal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --rosa-primario: #FF6B8B;
+            --rosa-secundario: #FF8E9E;
+            --rosa-oscuro: #D44D6E;
+            --rosa-claro: #FFC0CB;
+            --rosa-pastel: #FFE5E5;
+            --dorado: #D4AF37;
+            --blanco: #FFFFFF;
+            --gris-oscuro: #333333;
+            --gris-claro: #F5F5F5;
+            --violeta: #9370DB;
+        }
+        
         body {
-            background-color: black; /* Color de fondo negro */
-            background-image: url('https://raw.githubusercontent.com/JhonApancho/JhonApancho/main/GOJO%20VS%20SUKUNA.jpg'); /* Ruta corregida */
-            background-repeat: no-repeat; /* Evita que la imagen se repita */
-            background-size: 800px 1000px; /* Ajusta el tamaño de la imagen a 800x600 píxeles */
-            background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
-            background-position: center; /* Centra la imagen en el fondo */
-            color: white; /* Cambia el color del texto a blanco */
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: var(--gris-oscuro);
+            background-color: var(--rosa-pastel);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Patrón de cuadrícula para el fondo */
+        .grid-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--rosa-claro) 1px, transparent 1px),
+                linear-gradient(90deg, var(--rosa-claro) 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: center center;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        /* Flores estilizadas con formas geométricas */
+        .geometric-flower {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            background: 
+                radial-gradient(circle at center, var(--rosa-primario) 20%, transparent 20%),
+                repeating-conic-gradient(var(--rosa-primario) 0% 25%, transparent 25% 50%);
+            background-size: 100% 100%, 60px 60px;
+            z-index: -1;
+            animation: falling linear infinite;
+            opacity: 0.7;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+
+        /* Formas geométricas flotantes */
+        .floating-shape {
+            position: fixed;
+            z-index: -1;
+            animation: floatShape linear infinite;
+            opacity: 0.6;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 30px solid var(--rosa-primario);
+        }
+
+        .circle {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: var(--dorado);
+        }
+
+        .square {
+            width: 25px;
+            height: 25px;
+            background-color: var(--rosa-oscuro);
+            transform: rotate(45deg);
+        }
+
+        @keyframes falling {
+            0% {
+                transform: translate(0, -10vh) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translate(calc(50vw - 100px), 100vh) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes floatShape {
+            0% {
+                transform: translate(0, -10vh) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            50% {
+                transform: translate(15vw, 50vh) rotate(180deg) scale(1.3);
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translate(calc(30vw - 100px), 100vh) rotate(360deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--rosa-primario), var(--rosa-oscuro));
+            color: var(--blanco);
+            padding: 80px 0 60px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="%23FFE5E5"></path></svg>');
+            background-size: cover;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 1px;
+            font-family: 'Dancing Script', cursive;
+            color: var(--blanco);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            display: inline-block;
+            animation: pulseTitle 3s infinite alternate;
+        }
+
+        @keyframes pulseTitle {
+            0% { 
+                transform: scale(1); 
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            }
+            50% { 
+                transform: scale(1.05); 
+                text-shadow: 0 0 15px rgba(255,255,255,0.5);
+            }
+            100% { 
+                transform: scale(1); 
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            }
+        }
+
+        .subtitle {
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--blanco);
+            margin-top: 1rem;
+            font-family: 'Playfair Display', serif;
+            opacity: 0.9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            overflow: hidden;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        /* Secciones con diseño de cuadrícula */
+        section {
+            background-color: var(--blanco);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255,107,139,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            background-image: 
+                linear-gradient(var(--rosa-pastel) 1px, transparent 1px),
+                linear-gradient(90deg, var(--rosa-pastel) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: center center;
+        }
+
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--rosa-primario), var(--dorado));
+        }
+        
+        section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255,107,139,0.2);
+        }
+        
+        h2 {
+            color: var(--rosa-oscuro);
+            padding-bottom: 15px;
+            font-size: 2rem;
+            margin-top: 0;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--rosa-primario), var(--dorado));
+            transition: width 0.3s ease;
+        }
+
+        section:hover h2::after {
+            width: 100px;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li {
+            padding: 15px 0;
+            position: relative;
+            padding-left: 40px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--rosa-pastel);
+        }
+
+        li:hover {
+            transform: translateX(10px);
+        }
+        
+        li::before {
+            content: "◆";
+            color: var(--rosa-primario);
+            position: absolute;
+            left: 0;
+            top: 15px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        li:hover::before {
+            color: var(--dorado);
+            transform: scale(1.3) rotate(45deg);
+        }
+        
+        a {
+            color: var(--rosa-oscuro);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        a:hover {
+            color: var(--dorado);
+        }
+
+        a::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--dorado);
+            transition: width 0.3s ease;
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--rosa-oscuro), var(--gris-oscuro));
+            color: var(--blanco);
+            font-size: 1rem;
+            position: relative;
+            clip-path: polygon(0 20%, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path fill="%23FFE5E5" d="M0,20 Q25,0 50,20 T100,20 Z"/></svg>');
+            background-size: 100% 100%;
+        }
+        
+        /* Estilo para la imagen */
+        .profile-image {
+            display: block;
+            margin: 0 auto;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--blanco);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
+            animation: floatImage 6s ease-in-out infinite;
+            background-image: 
+                linear-gradient(45deg, var(--rosa-pastel) 25%, transparent 25%),
+                linear-gradient(-45deg, var(--rosa-pastel) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, var(--rosa-pastel) 75%),
+                linear-gradient(-45deg, transparent 75%, var(--rosa-pastel) 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        @keyframes floatImage {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .profile-image:hover {
+            animation: none;
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 20px 40px rgba(255,107,139,0.3);
+            border-color: var(--dorado);
+        }
+        
+        .quote {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--rosa-oscuro);
+            font-size: 1.3rem;
+            padding: 0 20%;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .quote::before,
+        .quote::after {
+            content: "“";
+            position: absolute;
+            top: 0;
+            left: 10%;
+            font-size: 3rem;
+            color: var(--rosa-primario);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .quote::after {
+            content: "”";
+            left: auto;
+            right: 10%;
+            top: auto;
+            bottom: -20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--rosa-primario), var(--dorado));
+            color: var(--blanco);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 15px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,107,139,0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,107,139,0.4);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 3px 10px rgba(255,107,139,0.3);
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Grid layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Tarjeta de curso con diseño geométrico */
+        .course-card {
+            background: var(--blanco);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--rosa-primario), var(--dorado));
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255,107,139,0.2);
+        }
+
+        .course-title {
+            font-weight: 600;
+            color: var(--rosa-oscuro);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .course-title::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--dorado);
+        }
+
+        .course-teacher {
+            color: var(--gris-oscuro);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .container {
+                width: 95%;
+            }
+            
+            .quote {
+                padding: 0 10%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 30px 20px;
+            }
+
+            .quote::before,
+            .quote::after {
+                display: none;
+            }
+            
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .quote {
+                font-size: 1.1rem;
+                padding: 0;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Jhon Praxedes Apancho Ascue</h1>
-    <p>Estudiante de cuarto semestre, tengo 23 años de la Carrera de Contabilidad en la Universidad Catolica San Pablo</p>
-    <h2>Datos generales</h2>
-    <p>Email: Jhon.apancho@ucsp.edu.pe</p>
-    <p>Linkedin: <a href="https://www.linkedin.com/in/jhon-praxedes-apancho-ascue-0a11aa33b/">enlace</a></p>
-    
-    <h2>Cursos Realizados</h2>
-    <ul>
-        <li>Contabilidad de Costos
-            <p>Pagina de Linkedin del Docente del curso: <a href="https://www.linkedin.com/in/lourdes-paz-25935335/">enlace</a></p>
-        </li>
-        <li>Calculo 1</li>
-        <li>Liderazgo
-            <p>Pagina de Linkedin del Docente del curso: <a href="https://www.linkedin.com/in/juan-alonso-sardá-candia-1b535768/">enlace</a></p>
-        </li>
-        <li>Pensamiento Critico
-            <p>Pagina de Linkedin del Docente del curso: <a href="https://www.linkedin.com/in/renatocu/">enlace</a></p>
-        </li>
-        <li>Logica
-            <p>Pagina de Linkedin del Docente del curso: <a href="https://www.linkedin.com/in/fernando-alberto-lacunza-murillo-604580220/">enlace</a></p>
-        </li>
-        <li>Introduccion a Ciencia de la Computacion
-            <p>Pagina de Linkedin del Docente del curso: <a href="https://www.linkedin.com/in/renzo-medina-zeballos-77145a35/">enlace</a></p>
-        </li>
-        <li>Historia Occidenal 1
-            <p>Pagina de Linkedin del Docente del curso: <a href="https://www.linkedin.com/in/amparo-isela-chalco-chávez-8185512aa/">enlace</a></p>
-        </li>
-    </ul>
+    <!-- Fondo de cuadrícula -->
+    <div class="grid-bg"></div>
 
-    <h2>Compañeros de Grupo del Curso de ICC</h2>
-    <ul>
-        <li>Alanis Aguilar: <a href="https://alanisaguilar.github.io/Alanis-Aguilar-Quezada.github.io/">enlace</a></li>
-        <li>Aylen Elena: <a href="https://ayleneyn.github.io/AYLEN-ELENA-YUCRA-NINA/">enlace</a></li>
-        <li>Allison Lucero Rendon Rios: <a href="https://ashlee-allison-rendon-rios.neocities.org">enlace</a></li>
-        <li>Shaell Nayely Machaca Narvaez: <a href="https://kirari14.github.io/Shaell-Nayely-Machaca-Narvaez/">enlace</a></li>
-        <li>Dayana Nicol Verapinto Romero: <a href="https://dayana-jpg.github.io/Dayana-Nicol-Verapinto-/">enlace</a></li>
-        <li>Valeska Noa Mamani: <a href="https://valeska-2006.github.io/Valeska-Anamile-Noa-Mamani/">enlace</a></li>
-    </ul>
+    <!-- Flores geométricas cayendo -->
+    <div class="geometric-flower" style="left: 10%; animation-duration: 18s; animation-delay: 0s;"></div>
+    <div class="geometric-flower" style="left: 30%; animation-duration: 22s; animation-delay: 3s; transform: scale(1.2);"></div>
+    <div class="geometric-flower" style="left: 70%; animation-duration: 25s; animation-delay: 5s; transform: scale(1.5);"></div>
+    <div class="geometric-flower" style="left: 50%; animation-duration: 20s; animation-delay: 7s; transform: scale(1.3);"></div>
+
+    <!-- Formas geométricas flotantes -->
+    <div class="floating-shape triangle" style="left: 15%; animation-duration: 20s; animation-delay: 1s;"></div>
+    <div class="floating-shape circle" style="left: 25%; animation-duration: 24s; animation-delay: 4s;"></div>
+    <div class="floating-shape square" style="left: 65%; animation-duration: 22s; animation-delay: 2s;"></div>
+    <div class="floating-shape triangle" style="left: 75%; animation-duration: 28s; animation-delay: 6s;"></div>
+    <div class="floating-shape circle" style="left: 45%; animation-duration: 21s; animation-delay: 3s;"></div>
+
+    <header>
+        <div class="container">
+            <h1>Jennifer Eliana Checya Soncco</h1>
+            <p class="subtitle">Estudiante universitaria y profesional en formación</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sección de perfil -->
+        <section id="profile">
+            <img src="Abril.jpg" alt="Jennifer Eliana" class="profile-image">
+            <div class="quote">
+                "La educación es el pasaporte hacia el futuro, porque el mañana pertenece a quienes se preparan para él hoy"
+            </div>
+        </section>
+
+        <!-- Sección de información académica -->
+        <section id="academic-info">
+            <h2>Mi Trayectoria Académica</h2>
+            <ul>
+                <li><strong>Carrera Profesional:</strong> <a href="https://ucsp.edu.pe/carreras/contabilidad/" target="_blank">Contabilidad</a></li>
+                <li><strong>Universidad:</strong> <a href="https://g.co/kgs/ctmbpVJ" target="_blank">Universidad Católica San Pablo</a></li>
+                <li><strong>Ciclo actual o semestre:</strong> 3 Semestre</li>
+            </ul>
+        </section>
+
+        <!-- Sección de cursos actuales -->
+        <section id="current-courses">
+            <h2>Mis Cursos Actuales</h2>
+            <div class="grid-container">
+                <div class="course-card">
+                    <div class="course-title">Economia general</div>
+                    <div class="course-teacher">Docente: <a href="https://www.linkedin.com/in/jhony-vel%C3%A1squez-delgado-112b8019/" target="_blank">Velásquez Delgado Jhony Emerson</a></div>
+                </div>
+                <div class="course-card">
+                    <div class="course-title">Calculo en una Variable</div>
+                    <div class="course-teacher">Profesor: <a href="https://www.linkedin.com/in/maribel-marianela-8453a61a7/" target="_blank">Quiroz Zegarra Maribel Marianela</a></div>
+                </div>
+                <div class="course-card">
+                    <div class="course-title">Logica</div>
+                    <div class="course-teacher">Profesor: <a href="https://www.linkedin.com/in/yahaira-byrne-rivera-274201221/" target="_blank">Byrne Rivera Yahaira</a></div>
+                </div>
+                <div class="course-card">
+                    <div class="course-title">Pensamiento Computacional</div>
+                    <div class="course-teacher">Profesor: <a href="https://www.linkedin.com/in/ecuadrosv/" target="_blank">Ernesto Cuadros</a></div>
+                </div>
+                <div class="course-card">
+                    <div class="course-title">Contabilidad II</div>
+                    <div class="course-teacher">Profesor: <a href="https://www.linkedin.com/in/giovanna-m-garc%C3%ADa-jarufe/" target="_blank">Garcia Jarufe Giovanna</a></div>
+                </div>
+                <div class="course-card">
+                    <div class="course-title">Legislacion Laboral</div>
+                    <div class="course-teacher">Profesor: <a href="https://www.linkedin.com/in/giovanna-m-garc%C3%ADa-jarufe/" target="_blank">Garcia Jarufe Giovanna</a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de compañeros -->
+        <section id="classmates">
+            <h2>Compañeros de Estudio</h2>
+            <div class="btn-container">
+                <a href="https://ruthmerybg.github.io/RuthMeryBarrigaVera/" target="_blank" class="btn">Ruth Mery Barriga Vera</a>
+                <a href="https://nicolegaldos.neocities.org" target="_blank" class="btn">Nicole Alexandra Galdós Champi</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Jennifer Eliana Checya Soncco - Todos los derechos reservados</p>
+        <p>Construyendo mi futuro profesional con dedicación y pasión</p>
+    </footer>
+
+    <script>
+        // Crear más elementos decorativos
+        function createDecorations() {
+            const shapes = ['triangle', 'circle', 'square'];
+            const colors = ['#FF6B8B', '#FF8E9E', '#D44D6E', '#D4AF37'];
+            
+            // Flores geométricas
+            for (let i = 0; i < 2; i++) {
+                setTimeout(() => {
+                    const flower = document.createElement('div');
+                    flower.className = 'geometric-flower';
+                    flower.style.left = Math.random() * 100 + 'vw';
+                    flower.style.animationDuration = (Math.random() * 15 + 15) + 's';
+                    flower.style.animationDelay = (Math.random() * 5) + 's';
+                    flower.style.opacity = Math.random() * 0.5 + 0.4;
+                    flower.style.transform = `scale(${Math.random() * 0.5 + 1})`;
+                    flower.style.width = (Math.random() * 30 + 30) + 'px';
+                    flower.style.height = (Math.random() * 30 + 30) + 'px';
+                    
+                    document.body.appendChild(flower);
+
+                    setTimeout(() => {
+                        flower.remove();
+                    }, 40000);
+                }, i * 3000);
+            }
+            
+            // Formas geométricas
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const shape = document.createElement('div');
+                    shape.className = `floating-shape ${shapes[Math.floor(Math.random() * shapes.length)]}`;
+                    shape.style.left = Math.random() * 100 + 'vw';
+                    shape.style.animationDuration = (Math.random() * 20 + 20) + 's';
+                    shape.style.animationDelay = (Math.random() * 5) + 's';
+                    shape.style.opacity = Math.random() * 0.4 + 0.3;
+                    
+                    const colorIndex = Math.floor(Math.random() * colors.length);
+                    if (shape.classList.contains('triangle')) {
+                        shape.style.borderBottomColor = colors[colorIndex];
+                    } else {
+                        shape.style.backgroundColor = colors[colorIndex];
+                    }
+                    
+                    document.body.appendChild(shape);
+
+                    setTimeout(() => {
+                        shape.remove();
+                    }, 50000);
+                }, i * 3500);
+            }
+        }
+
+        // Efecto de botones
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                // Crear efecto de forma geométrica al pasar el mouse
+                const shape = document.createElement('div');
+                shape.className = 'floating-shape';
+                shape.classList.add(Math.random() > 0.5 ? 'circle' : 'triangle');
+                shape.style.position = 'absolute';
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.top = `${Math.random() * 100}%`;
+                shape.style.animation = 'floatShape 2s ease-out forwards';
+                shape.style.opacity = '0.8';
+                
+                if (shape.classList.contains('triangle')) {
+                    shape.style.borderBottomColor = 'var(--dorado)';
+                } else {
+                    shape.style.backgroundColor = 'var(--rosa-primario)';
+                }
+                
+                button.appendChild(shape);
+                
+                setTimeout(() => {
+                    shape.remove();
+                }, 2000);
+            });
+            
+            button.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') return;
+                
+                button.style.transform = 'translateY(1px)';
+                button.style.boxShadow = '0 2px 10px rgba(255,107,139,0.3)';
+                setTimeout(() => {
+                    button.style.transform = 'translateY(-3px)';
+                    button.style.boxShadow = '0 8px 25px rgba(255,107,139,0.4)';
+                }, 200);
+            });
+        });
+
+        // Iniciar efectos
+        document.addEventListener('DOMContentLoaded', () => {
+            createDecorations();
+            setInterval(createDecorations, 10000);
+            
+            // Efecto de título pulsante
+            const title = document.querySelector('h1');
+            setInterval(() => {
+                title.style.animation = 'none';
+                setTimeout(() => {
+                    title.style.animation = 'pulseTitle 3s infinite alternate';
+                }, 10);
+            }, 5000);
+        });
+    </script>
 </body>
 </html>
