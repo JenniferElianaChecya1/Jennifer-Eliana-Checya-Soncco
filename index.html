@@ -89,7 +89,7 @@
         header {
             background: linear-gradient(135deg, var(--ucsp-azul), var(--ucsp-azul-claro));
             color: var(--ucsp-blanco);
-            padding: 100px 0 70px;
+            padding: 80px 0 60px;
             text-align: center;
             margin-bottom: 40px;
             position: relative;
@@ -287,37 +287,46 @@
             background-size: 100% 100%;
         }
         
-        /* Estilo para la imagen */
-        .profile-image {
-            display: block;
-            margin: 0 auto;
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--ucsp-blanco);
-            box-shadow: 0 15px 30px rgba(0, 51, 102, 0.2);
-            transition: all 0.5s ease;
-            animation: floatImage 6s ease-in-out infinite;
-            background-color: var(--ucsp-gris);
+        /* Logo UCSP animado */
+        .ucsp-logo-animated {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px auto;
+            perspective: 1000px;
         }
 
-        @keyframes floatImage {
+        .ucsp-letters {
+            display: flex;
+            gap: 5px;
+        }
+
+        .ucsp-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--ucsp-azul);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            transform-style: preserve-3d;
+            animation: letterFloat 6s ease-in-out infinite;
+            position: relative;
+            line-height: 1;
+        }
+
+        .ucsp-letter:nth-child(1) { animation-delay: 0s; color: var(--ucsp-azul); }
+        .ucsp-letter:nth-child(2) { animation-delay: 0.2s; color: var(--ucsp-dorado); }
+        .ucsp-letter:nth-child(3) { animation-delay: 0.4s; color: var(--ucsp-azul); }
+        .ucsp-letter:nth-child(4) { animation-delay: 0.6s; color: var(--ucsp-rojo); }
+
+        @keyframes letterFloat {
             0%, 100% {
-                transform: translateY(0);
+                transform: translateY(0) rotateX(0);
             }
             50% {
-                transform: translateY(-15px);
+                transform: translateY(-20px) rotateX(20deg);
             }
         }
 
-        .profile-image:hover {
-            animation: none;
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 51, 102, 0.3);
-            border-color: var(--ucsp-dorado);
-        }
-        
         .quote {
             text-align: center;
             margin: 30px 0;
@@ -443,12 +452,6 @@
             margin-top: 8px;
         }
 
-        .ucsp-logo {
-            width: 150px;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
         /* Responsive */
         @media (max-width: 992px) {
             .container {
@@ -470,9 +473,8 @@
                 display: none;
             }
             
-            .profile-image {
-                width: 180px;
-                height: 180px;
+            .ucsp-letter {
+                font-size: 3rem;
             }
 
             .quote {
@@ -498,7 +500,6 @@
 
     <header>
         <div class="container">
-            <img src="https://ucsp.edu.pe/wp-content/uploads/2020/07/escudo-ucsp.png" alt="Logo UCSP" class="ucsp-logo">
             <h1>Jennifer Eliana Checya Soncco</h1>
             <p class="subtitle">Estudiante de Contabilidad - Universidad Católica San Pablo</p>
             <div class="ucsp-badge">3er Semestre</div>
@@ -508,7 +509,14 @@
     <div class="container">
         <!-- Sección de perfil -->
         <section id="profile">
-            <img src="Logo.jpg" alt="Jennifer Eliana" class="profile-image">
+            <div class="ucsp-logo-animated">
+                <div class="ucsp-letters">
+                    <div class="ucsp-letter">U</div>
+                    <div class="ucsp-letter">C</div>
+                    <div class="ucsp-letter">S</div>
+                    <div class="ucsp-letter">P</div>
+                </div>
+            </div>
             <div class="quote">
                 "La excelencia académica es el camino hacia el éxito profesional. En la UCSP cultivamos ambos con valores cristianos y compromiso social."
             </div>
@@ -612,6 +620,20 @@
             }
         }
 
+        // Animación adicional para las letras UCSP
+        function animateUCSPLetters() {
+            const letters = document.querySelectorAll('.ucsp-letter');
+            letters.forEach((letter, index) => {
+                setInterval(() => {
+                    letter.style.animation = 'none';
+                    setTimeout(() => {
+                        letter.style.animation = 'letterFloat 6s ease-in-out infinite';
+                        letter.style.animationDelay = `${index * 0.2}s`;
+                    }, 10);
+                }, 8000);
+            });
+        }
+
         // Efecto de botones
         document.querySelectorAll('.btn').forEach(button => {
             button.addEventListener('mouseenter', () => {
@@ -637,6 +659,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             createAcademicDecorations();
             setInterval(createAcademicDecorations, 10000);
+            animateUCSPLetters();
         });
     </script>
 </body>
