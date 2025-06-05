@@ -3,108 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jennifer Eliana - Portafolio Personal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Jennifer Eliana - Portafolio UCSP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --rosa-primario: #FF6B8B;
-            --rosa-secundario: #FF8E9E;
-            --rosa-oscuro: #D44D6E;
-            --rosa-claro: #FFC0CB;
-            --rosa-pastel: #FFE5E5;
-            --dorado: #D4AF37;
-            --blanco: #FFFFFF;
-            --gris-oscuro: #333333;
-            --gris-claro: #F5F5F5;
-            --violeta: #9370DB;
+            --ucsp-azul: #003366;
+            --ucsp-azul-claro: #005B96;
+            --ucsp-dorado: #D4AF37;
+            --ucsp-blanco: #FFFFFF;
+            --ucsp-gris: #F5F5F5;
+            --ucsp-gris-oscuro: #333333;
+            --ucsp-rojo: #AA1C2D;
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.8;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            color: var(--gris-oscuro);
-            background-color: var(--rosa-pastel);
+            color: var(--ucsp-gris-oscuro);
+            background-color: var(--ucsp-gris);
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Patrón de cuadrícula para el fondo */
+        /* Fondo con patrón de cuadernos universitarios */
         .grid-bg {
             position: fixed;
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(var(--rosa-claro) 1px, transparent 1px),
-                linear-gradient(90deg, var(--rosa-claro) 1px, transparent 1px);
-            background-size: 30px 30px;
+                linear-gradient(var(--ucsp-gris) 1px, transparent 1px),
+                linear-gradient(90deg, var(--ucsp-gris) 1px, transparent 1px);
+            background-size: 40px 40px;
             background-position: center center;
             z-index: -1;
-            opacity: 0.2;
+            opacity: 0.3;
         }
 
-        /* Flores estilizadas con formas geométricas */
-        .geometric-flower {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            background: 
-                radial-gradient(circle at center, var(--rosa-primario) 20%, transparent 20%),
-                repeating-conic-gradient(var(--rosa-primario) 0% 25%, transparent 25% 50%);
-            background-size: 100% 100%, 60px 60px;
-            z-index: -1;
-            animation: falling linear infinite;
-            opacity: 0.7;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
-        }
-
-        /* Formas geométricas flotantes */
-        .floating-shape {
+        /* Elementos decorativos académicos */
+        .academic-decoration {
             position: fixed;
             z-index: -1;
+            opacity: 0.1;
             animation: floatShape linear infinite;
-            opacity: 0.6;
         }
 
-        .triangle {
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-bottom: 30px solid var(--rosa-primario);
+        .book {
+            color: var(--ucsp-azul);
+            font-size: 2rem;
         }
 
-        .circle {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background-color: var(--dorado);
+        .graduation-cap {
+            color: var(--ucsp-dorado);
+            font-size: 2rem;
         }
 
-        .square {
-            width: 25px;
-            height: 25px;
-            background-color: var(--rosa-oscuro);
-            transform: rotate(45deg);
-        }
-
-        @keyframes falling {
-            0% {
-                transform: translate(0, -10vh) rotate(0deg) scale(1);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.7;
-            }
-            90% {
-                opacity: 0.7;
-            }
-            100% {
-                transform: translate(calc(50vw - 100px), 100vh) rotate(360deg) scale(1.2);
-                opacity: 0;
-            }
+        .calculator {
+            color: var(--ucsp-rojo);
+            font-size: 2rem;
         }
 
         @keyframes floatShape {
@@ -113,13 +72,13 @@
                 opacity: 0;
             }
             10% {
-                opacity: 0.6;
+                opacity: 0.3;
             }
             50% {
                 transform: translate(15vw, 50vh) rotate(180deg) scale(1.3);
             }
             90% {
-                opacity: 0.6;
+                opacity: 0.3;
             }
             100% {
                 transform: translate(calc(30vw - 100px), 100vh) rotate(360deg) scale(1);
@@ -128,14 +87,15 @@
         }
 
         header {
-            background: linear-gradient(135deg, var(--rosa-primario), var(--rosa-oscuro));
-            color: var(--blanco);
-            padding: 80px 0 60px;
+            background: linear-gradient(135deg, var(--ucsp-azul), var(--ucsp-azul-claro));
+            color: var(--ucsp-blanco);
+            padding: 100px 0 70px;
             text-align: center;
             margin-bottom: 40px;
             position: relative;
             overflow: hidden;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            box-shadow: 0 10px 30px rgba(0, 51, 102, 0.2);
         }
         
         header::after {
@@ -145,44 +105,41 @@
             left: 0;
             width: 100%;
             height: 20px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="%23FFE5E5"></path></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="%23F5F5F5"></path></svg>');
             background-size: cover;
         }
         
         h1 {
             margin: 0;
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             letter-spacing: 1px;
-            font-family: 'Dancing Script', cursive;
-            color: var(--blanco);
+            font-family: 'Playfair Display', serif;
+            color: var(--ucsp-blanco);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
             position: relative;
             display: inline-block;
-            animation: pulseTitle 3s infinite alternate;
-        }
-
-        @keyframes pulseTitle {
-            0% { 
-                transform: scale(1); 
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            }
-            50% { 
-                transform: scale(1.05); 
-                text-shadow: 0 0 15px rgba(255,255,255,0.5);
-            }
-            100% { 
-                transform: scale(1); 
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            }
         }
 
         .subtitle {
             font-style: italic;
             font-size: 1.4rem;
-            color: var(--blanco);
+            color: var(--ucsp-blanco);
             margin-top: 1rem;
             font-family: 'Playfair Display', serif;
             opacity: 0.9;
+        }
+        
+        .ucsp-badge {
+            display: inline-block;
+            background-color: var(--ucsp-dorado);
+            color: var(--ucsp-azul);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .container {
@@ -196,39 +153,37 @@
             gap: 30px;
         }
         
-        /* Secciones con diseño de cuadrícula */
+        /* Secciones con diseño académico */
         section {
-            background-color: var(--blanco);
+            background-color: var(--ucsp-blanco);
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(255,107,139,0.1);
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 51, 102, 0.1);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            background-image: 
-                linear-gradient(var(--rosa-pastel) 1px, transparent 1px),
-                linear-gradient(90deg, var(--rosa-pastel) 1px, transparent 1px);
-            background-size: 20px 20px;
-            background-position: center center;
+            border-left: 5px solid var(--ucsp-dorado);
         }
 
         section::before {
             content: "";
             position: absolute;
             top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--rosa-primario), var(--dorado));
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23D4AF37" opacity="0.1"><path d="M50 0 L100 50 L50 100 L0 50 Z"></path></svg>');
+            background-size: contain;
+            z-index: 0;
         }
         
         section:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(255,107,139,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 51, 102, 0.2);
         }
         
         h2 {
-            color: var(--rosa-oscuro);
+            color: var(--ucsp-azul);
             padding-bottom: 15px;
             font-size: 2rem;
             margin-top: 0;
@@ -245,7 +200,7 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(to right, var(--rosa-primario), var(--dorado));
+            background: linear-gradient(to right, var(--ucsp-dorado), var(--ucsp-azul));
             transition: width 0.3s ease;
         }
 
@@ -264,7 +219,7 @@
             padding-left: 40px;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            border-bottom: 1px solid var(--rosa-pastel);
+            border-bottom: 1px solid rgba(0, 51, 102, 0.1);
         }
 
         li:hover {
@@ -272,30 +227,28 @@
         }
         
         li::before {
-            content: "◆";
-            color: var(--rosa-primario);
+            content: "📚";
             position: absolute;
             left: 0;
             top: 15px;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
         }
 
         li:hover::before {
-            color: var(--dorado);
-            transform: scale(1.3) rotate(45deg);
+            transform: scale(1.3);
         }
         
         a {
-            color: var(--rosa-oscuro);
+            color: var(--ucsp-azul);
             text-decoration: none;
             transition: all 0.3s ease;
-            font-weight: 600;
+            font-weight: 500;
             position: relative;
         }
         
         a:hover {
-            color: var(--dorado);
+            color: var(--ucsp-azul-claro);
         }
 
         a::after {
@@ -305,7 +258,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--dorado);
+            background: var(--ucsp-dorado);
             transition: width 0.3s ease;
         }
 
@@ -315,9 +268,9 @@
         
         footer {
             text-align: center;
-            padding: 40px 0;
-            background: linear-gradient(135deg, var(--rosa-oscuro), var(--gris-oscuro));
-            color: var(--blanco);
+            padding: 60px 0 40px;
+            background: linear-gradient(135deg, var(--ucsp-azul), var(--ucsp-gris-oscuro));
+            color: var(--ucsp-blanco);
             font-size: 1rem;
             position: relative;
             clip-path: polygon(0 20%, 100% 0, 100% 100%, 0% 100%);
@@ -330,7 +283,7 @@
             left: 0;
             width: 100%;
             height: 20px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path fill="%23FFE5E5" d="M0,20 Q25,0 50,20 T100,20 Z"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path fill="%23F5F5F5" d="M0,20 Q25,0 50,20 T100,20 Z"/></svg>');
             background-size: 100% 100%;
         }
         
@@ -338,21 +291,15 @@
         .profile-image {
             display: block;
             margin: 0 auto;
-            width: 250px;
-            height: 250px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid var(--blanco);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border: 5px solid var(--ucsp-blanco);
+            box-shadow: 0 15px 30px rgba(0, 51, 102, 0.2);
             transition: all 0.5s ease;
             animation: floatImage 6s ease-in-out infinite;
-            background-image: 
-                linear-gradient(45deg, var(--rosa-pastel) 25%, transparent 25%),
-                linear-gradient(-45deg, var(--rosa-pastel) 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, var(--rosa-pastel) 75%),
-                linear-gradient(-45deg, transparent 75%, var(--rosa-pastel) 75%);
-            background-size: 20px 20px;
-            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            background-color: var(--ucsp-gris);
         }
 
         @keyframes floatImage {
@@ -360,15 +307,15 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-15px);
             }
         }
 
         .profile-image:hover {
             animation: none;
-            transform: scale(1.05) rotate(5deg);
-            box-shadow: 0 20px 40px rgba(255,107,139,0.3);
-            border-color: var(--dorado);
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 51, 102, 0.3);
+            border-color: var(--ucsp-dorado);
         }
         
         .quote {
@@ -377,78 +324,68 @@
             position: relative;
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            color: var(--rosa-oscuro);
+            color: var(--ucsp-azul);
             font-size: 1.3rem;
-            padding: 0 20%;
-            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--ucsp-dorado);
         }
 
         .quote::before,
         .quote::after {
-            content: "“";
+            content: """;
             position: absolute;
-            top: 0;
-            left: 10%;
+            top: 10px;
+            left: 20px;
             font-size: 3rem;
-            color: var(--rosa-primario);
+            color: var(--ucsp-dorado);
             opacity: 0.3;
             line-height: 1;
+            font-family: serif;
         }
 
         .quote::after {
-            content: "”";
+            content: """;
             left: auto;
-            right: 10%;
+            right: 20px;
             top: auto;
-            bottom: -20px;
+            bottom: -10px;
         }
         
         .btn {
             display: inline-block;
-            background: linear-gradient(to right, var(--rosa-primario), var(--dorado));
-            color: var(--blanco);
+            background: linear-gradient(to right, var(--ucsp-azul), var(--ucsp-azul-claro));
+            color: var(--ucsp-blanco);
             padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
+            border-radius: 30px;
+            font-weight: 500;
             margin: 15px 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255,107,139,0.3);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.2);
             border: none;
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            font-family: 'Poppins', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 0.5px;
             font-size: 0.9rem;
         }
 
-        .btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: all 0.5s ease;
+        .btn-gold {
+            background: linear-gradient(to right, var(--ucsp-dorado), #E8C547);
+            color: var(--ucsp-azul);
         }
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255,107,139,0.4);
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.3);
         }
 
-        .btn:hover::before {
-            left: 100%;
-        }
-        
         .btn:active {
             transform: translateY(1px);
-            box-shadow: 0 3px 10px rgba(255,107,139,0.3);
+            box-shadow: 0 3px 10px rgba(0, 51, 102, 0.2);
         }
 
         .btn-container {
@@ -460,39 +397,30 @@
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 25px;
             margin-top: 40px;
         }
 
-        /* Tarjeta de curso con diseño geométrico */
+        /* Tarjeta de curso con diseño académico */
         .course-card {
-            background: var(--blanco);
-            border-radius: 10px;
+            background: var(--ucsp-blanco);
+            border-radius: 8px;
             padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-        }
-
-        .course-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--rosa-primario), var(--dorado));
+            border-top: 4px solid var(--ucsp-dorado);
         }
 
         .course-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255,107,139,0.2);
+            box-shadow: 0 10px 25px rgba(0, 51, 102, 0.2);
         }
 
         .course-title {
             font-weight: 600;
-            color: var(--rosa-oscuro);
+            color: var(--ucsp-azul);
             margin-bottom: 10px;
             font-size: 1.2rem;
             position: relative;
@@ -506,22 +434,25 @@
             left: 0;
             width: 30px;
             height: 2px;
-            background: var(--dorado);
+            background: var(--ucsp-dorado);
         }
 
         .course-teacher {
-            color: var(--gris-oscuro);
+            color: var(--ucsp-gris-oscuro);
             font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        .ucsp-logo {
+            width: 150px;
+            margin-bottom: 20px;
+            opacity: 0.9;
         }
 
         /* Responsive */
         @media (max-width: 992px) {
             .container {
                 width: 95%;
-            }
-            
-            .quote {
-                padding: 0 10%;
             }
         }
 
@@ -540,13 +471,13 @@
             }
             
             .profile-image {
-                width: 200px;
-                height: 200px;
+                width: 180px;
+                height: 180px;
             }
 
             .quote {
                 font-size: 1.1rem;
-                padding: 0;
+                padding: 15px;
             }
 
             .grid-container {
@@ -559,23 +490,18 @@
     <!-- Fondo de cuadrícula -->
     <div class="grid-bg"></div>
 
-    <!-- Flores geométricas cayendo -->
-    <div class="geometric-flower" style="left: 10%; animation-duration: 18s; animation-delay: 0s;"></div>
-    <div class="geometric-flower" style="left: 30%; animation-duration: 22s; animation-delay: 3s; transform: scale(1.2);"></div>
-    <div class="geometric-flower" style="left: 70%; animation-duration: 25s; animation-delay: 5s; transform: scale(1.5);"></div>
-    <div class="geometric-flower" style="left: 50%; animation-duration: 20s; animation-delay: 7s; transform: scale(1.3);"></div>
-
-    <!-- Formas geométricas flotantes -->
-    <div class="floating-shape triangle" style="left: 15%; animation-duration: 20s; animation-delay: 1s;"></div>
-    <div class="floating-shape circle" style="left: 25%; animation-duration: 24s; animation-delay: 4s;"></div>
-    <div class="floating-shape square" style="left: 65%; animation-duration: 22s; animation-delay: 2s;"></div>
-    <div class="floating-shape triangle" style="left: 75%; animation-duration: 28s; animation-delay: 6s;"></div>
-    <div class="floating-shape circle" style="left: 45%; animation-duration: 21s; animation-delay: 3s;"></div>
+    <!-- Elementos decorativos académicos -->
+    <div class="academic-decoration book" style="left: 10%; animation-duration: 25s; animation-delay: 0s;"><i class="fas fa-book"></i></div>
+    <div class="academic-decoration graduation-cap" style="left: 30%; animation-duration: 30s; animation-delay: 5s;"><i class="fas fa-graduation-cap"></i></div>
+    <div class="academic-decoration calculator" style="left: 70%; animation-duration: 28s; animation-delay: 3s;"><i class="fas fa-calculator"></i></div>
+    <div class="academic-decoration book" style="left: 50%; animation-duration: 35s; animation-delay: 7s;"><i class="fas fa-book-open"></i></div>
 
     <header>
         <div class="container">
+            <img src="https://ucsp.edu.pe/wp-content/uploads/2020/07/escudo-ucsp.png" alt="Logo UCSP" class="ucsp-logo">
             <h1>Jennifer Eliana Checya Soncco</h1>
-            <p class="subtitle">Estudiante universitaria y profesional en formación</p>
+            <p class="subtitle">Estudiante de Contabilidad - Universidad Católica San Pablo</p>
+            <div class="ucsp-badge">3er Semestre</div>
         </div>
     </header>
 
@@ -584,170 +510,133 @@
         <section id="profile">
             <img src="Abril.jpg" alt="Jennifer Eliana" class="profile-image">
             <div class="quote">
-                "La educación es el pasaporte hacia el futuro, porque el mañana pertenece a quienes se preparan para él hoy"
+                "La excelencia académica es el camino hacia el éxito profesional. En la UCSP cultivamos ambos con valores cristianos y compromiso social."
             </div>
         </section>
 
         <!-- Sección de información académica -->
         <section id="academic-info">
-            <h2>Mi Trayectoria Académica</h2>
+            <h2><i class="fas fa-graduation-cap" style="margin-right: 10px;"></i> Trayectoria Académica</h2>
             <ul>
                 <li><strong>Carrera Profesional:</strong> <a href="https://ucsp.edu.pe/carreras/contabilidad/" target="_blank">Contabilidad</a></li>
                 <li><strong>Universidad:</strong> <a href="https://g.co/kgs/ctmbpVJ" target="_blank">Universidad Católica San Pablo</a></li>
-                <li><strong>Ciclo actual o semestre:</strong> 3 Semestre</li>
+                <li><strong>Ciclo Actual:</strong> Tercer Semestre</li>
+                <li><strong>Facultad:</strong> Ciencias Económicas y Empresariales</li>
+                <li><strong>Sede:</strong> Campus San Lázaro - Arequipa</li>
             </ul>
         </section>
 
         <!-- Sección de cursos actuales -->
         <section id="current-courses">
-            <h2>Mis Cursos Actuales</h2>
+            <h2><i class="fas fa-book" style="margin-right: 10px;"></i> Cursos Actuales</h2>
             <div class="grid-container">
                 <div class="course-card">
-                    <div class="course-title">Economia general</div>
+                    <div class="course-title">Economía General</div>
                     <div class="course-teacher">Docente: <a href="https://www.linkedin.com/in/jhony-vel%C3%A1squez-delgado-112b8019/" target="_blank">Velásquez Delgado Jhony Emerson</a></div>
+                    <div class="course-teacher"><i class="fas fa-clock" style="margin-right: 5px;"></i> Lunes y Miércoles 8:00 - 10:00</div>
                 </div>
                 <div class="course-card">
-                    <div class="course-title">Calculo en una Variable</div>
+                    <div class="course-title">Cálculo en una Variable</div>
                     <div class="course-teacher">Profesor: <a href="https://www.linkedin.com/in/maribel-marianela-8453a61a7/" target="_blank">Quiroz Zegarra Maribel Marianela</a></div>
+                    <div class="course-teacher"><i class="fas fa-clock" style="margin-right: 5px;"></i> Martes y Jueves 10:00 - 12:00</div>
                 </div>
                 <div class="course-card">
-                    <div class="course-title">Logica</div>
+                    <div class="course-title">Lógica</div>
                     <div class="course-teacher">Profesor: <a href="https://www.linkedin.com/in/yahaira-byrne-rivera-274201221/" target="_blank">Byrne Rivera Yahaira</a></div>
+                    <div class="course-teacher"><i class="fas fa-clock" style="margin-right: 5px;"></i> Lunes y Miércoles 14:00 - 16:00</div>
                 </div>
                 <div class="course-card">
                     <div class="course-title">Pensamiento Computacional</div>
                     <div class="course-teacher">Profesor: <a href="https://www.linkedin.com/in/ecuadrosv/" target="_blank">Ernesto Cuadros</a></div>
+                    <div class="course-teacher"><i class="fas fa-clock" style="margin-right: 5px;"></i> Martes y Jueves 16:00 - 18:00</div>
                 </div>
                 <div class="course-card">
                     <div class="course-title">Contabilidad II</div>
                     <div class="course-teacher">Profesor: <a href="https://www.linkedin.com/in/giovanna-m-garc%C3%ADa-jarufe/" target="_blank">Garcia Jarufe Giovanna</a></div>
+                    <div class="course-teacher"><i class="fas fa-clock" style="margin-right: 5px;"></i> Viernes 8:00 - 12:00</div>
                 </div>
                 <div class="course-card">
-                    <div class="course-title">Legislacion Laboral</div>
+                    <div class="course-title">Legislación Laboral</div>
                     <div class="course-teacher">Profesor: <a href="https://www.linkedin.com/in/giovanna-m-garc%C3%ADa-jarufe/" target="_blank">Garcia Jarufe Giovanna</a></div>
+                    <div class="course-teacher"><i class="fas fa-clock" style="margin-right: 5px;"></i> Viernes 14:00 - 18:00</div>
                 </div>
             </div>
         </section>
 
         <!-- Sección de compañeros -->
         <section id="classmates">
-            <h2>Compañeros de Estudio</h2>
+            <h2><i class="fas fa-users" style="margin-right: 10px;"></i> Compañeros de Estudio</h2>
             <div class="btn-container">
-                <a href="https://ruthmerybg.github.io/RuthMeryBarrigaVera/" target="_blank" class="btn">Ruth Mery Barriga Vera</a>
-                <a href="https://nicolegaldos.neocities.org" target="_blank" class="btn">Nicole Alexandra Galdós Champi</a>
+                <a href="https://ruthmerybg.github.io/RuthMeryBarrigaVera/" target="_blank" class="btn btn-gold"><i class="fas fa-user-graduate" style="margin-right: 8px;"></i> Ruth Mery Barriga Vera</a>
+                <a href="https://nicolegaldos.neocities.org" target="_blank" class="btn btn-gold"><i class="fas fa-user-graduate" style="margin-right: 8px;"></i> Nicole Alexandra Galdós Champi</a>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2023 Jennifer Eliana Checya Soncco - Todos los derechos reservados</p>
-        <p>Construyendo mi futuro profesional con dedicación y pasión</p>
+        <p>&copy; 2023 Jennifer Eliana Checya Soncco - Universidad Católica San Pablo</p>
+        <p>"Formando profesionales con excelencia académica y valores cristianos"</p>
+        <div style="margin-top: 20px;">
+            <a href="https://ucsp.edu.pe" target="_blank" style="color: var(--ucsp-dorado); margin: 0 10px;"><i class="fas fa-globe"></i> ucsp.edu.pe</a>
+            <a href="https://facebook.com/UCSPeru" target="_blank" style="color: var(--ucsp-dorado); margin: 0 10px;"><i class="fab fa-facebook"></i> UCSPeru</a>
+            <a href="https://instagram.com/ucspoficial" target="_blank" style="color: var(--ucsp-dorado); margin: 0 10px;"><i class="fab fa-instagram"></i> ucspoficial</a>
+        </div>
     </footer>
 
     <script>
-        // Crear más elementos decorativos
-        function createDecorations() {
-            const shapes = ['triangle', 'circle', 'square'];
-            const colors = ['#FF6B8B', '#FF8E9E', '#D44D6E', '#D4AF37'];
+        // Crear más elementos decorativos académicos
+        function createAcademicDecorations() {
+            const icons = ['book', 'book-open', 'graduation-cap', 'calculator', 'pencil-alt', 'file-alt'];
+            const colors = ['#003366', '#005B96', '#D4AF37', '#AA1C2D'];
             
-            // Flores geométricas
-            for (let i = 0; i < 2; i++) {
-                setTimeout(() => {
-                    const flower = document.createElement('div');
-                    flower.className = 'geometric-flower';
-                    flower.style.left = Math.random() * 100 + 'vw';
-                    flower.style.animationDuration = (Math.random() * 15 + 15) + 's';
-                    flower.style.animationDelay = (Math.random() * 5) + 's';
-                    flower.style.opacity = Math.random() * 0.5 + 0.4;
-                    flower.style.transform = `scale(${Math.random() * 0.5 + 1})`;
-                    flower.style.width = (Math.random() * 30 + 30) + 'px';
-                    flower.style.height = (Math.random() * 30 + 30) + 'px';
-                    
-                    document.body.appendChild(flower);
-
-                    setTimeout(() => {
-                        flower.remove();
-                    }, 40000);
-                }, i * 3000);
-            }
-            
-            // Formas geométricas
             for (let i = 0; i < 3; i++) {
                 setTimeout(() => {
-                    const shape = document.createElement('div');
-                    shape.className = `floating-shape ${shapes[Math.floor(Math.random() * shapes.length)]}`;
-                    shape.style.left = Math.random() * 100 + 'vw';
-                    shape.style.animationDuration = (Math.random() * 20 + 20) + 's';
-                    shape.style.animationDelay = (Math.random() * 5) + 's';
-                    shape.style.opacity = Math.random() * 0.4 + 0.3;
+                    const decoration = document.createElement('div');
+                    decoration.className = 'academic-decoration';
+                    decoration.classList.add(icons[Math.floor(Math.random() * icons.length)]);
+                    decoration.innerHTML = `<i class="fas fa-${icons[Math.floor(Math.random() * icons.length)]}"></i>`;
                     
-                    const colorIndex = Math.floor(Math.random() * colors.length);
-                    if (shape.classList.contains('triangle')) {
-                        shape.style.borderBottomColor = colors[colorIndex];
-                    } else {
-                        shape.style.backgroundColor = colors[colorIndex];
-                    }
+                    decoration.style.left = Math.random() * 100 + 'vw';
+                    decoration.style.animationDuration = (Math.random() * 20 + 20) + 's';
+                    decoration.style.animationDelay = (Math.random() * 5) + 's';
+                    decoration.style.opacity = Math.random() * 0.2 + 0.1;
+                    decoration.style.fontSize = (Math.random() * 1 + 1.5) + 'rem';
+                    decoration.style.color = colors[Math.floor(Math.random() * colors.length)];
                     
-                    document.body.appendChild(shape);
+                    document.body.appendChild(decoration);
 
                     setTimeout(() => {
-                        shape.remove();
-                    }, 50000);
-                }, i * 3500);
+                        decoration.remove();
+                    }, 40000);
+                }, i * 4000);
             }
         }
 
         // Efecto de botones
         document.querySelectorAll('.btn').forEach(button => {
             button.addEventListener('mouseenter', () => {
-                // Crear efecto de forma geométrica al pasar el mouse
-                const shape = document.createElement('div');
-                shape.className = 'floating-shape';
-                shape.classList.add(Math.random() > 0.5 ? 'circle' : 'triangle');
-                shape.style.position = 'absolute';
-                shape.style.left = `${Math.random() * 100}%`;
-                shape.style.top = `${Math.random() * 100}%`;
-                shape.style.animation = 'floatShape 2s ease-out forwards';
-                shape.style.opacity = '0.8';
+                // Crear efecto de icono al pasar el mouse
+                const icon = document.createElement('i');
+                icon.className = 'fas fa-arrow-right';
+                icon.style.position = 'absolute';
+                icon.style.left = `${Math.random() * 100}%`;
+                icon.style.top = `${Math.random() * 100}%`;
+                icon.style.animation = 'floatShape 1.5s ease-out forwards';
+                icon.style.opacity = '0.8';
+                icon.style.color = 'var(--ucsp-dorado)';
                 
-                if (shape.classList.contains('triangle')) {
-                    shape.style.borderBottomColor = 'var(--dorado)';
-                } else {
-                    shape.style.backgroundColor = 'var(--rosa-primario)';
-                }
-                
-                button.appendChild(shape);
+                button.appendChild(icon);
                 
                 setTimeout(() => {
-                    shape.remove();
-                }, 2000);
-            });
-            
-            button.addEventListener('click', (e) => {
-                if (e.target.tagName === 'A') return;
-                
-                button.style.transform = 'translateY(1px)';
-                button.style.boxShadow = '0 2px 10px rgba(255,107,139,0.3)';
-                setTimeout(() => {
-                    button.style.transform = 'translateY(-3px)';
-                    button.style.boxShadow = '0 8px 25px rgba(255,107,139,0.4)';
-                }, 200);
+                    icon.remove();
+                }, 1500);
             });
         });
 
         // Iniciar efectos
         document.addEventListener('DOMContentLoaded', () => {
-            createDecorations();
-            setInterval(createDecorations, 10000);
-            
-            // Efecto de título pulsante
-            const title = document.querySelector('h1');
-            setInterval(() => {
-                title.style.animation = 'none';
-                setTimeout(() => {
-                    title.style.animation = 'pulseTitle 3s infinite alternate';
-                }, 10);
-            }, 5000);
+            createAcademicDecorations();
+            setInterval(createAcademicDecorations, 10000);
         });
     </script>
 </body>
